@@ -9,6 +9,7 @@ todoApp.controller('TodoListCtrl', ['$scope', 'Todo', 'socket', function($scope,
 
 		});
 	};
+
 	$scope.addTodo = function() {
 		if (!$scope.newTodo)
 			return;
@@ -17,19 +18,22 @@ todoApp.controller('TodoListCtrl', ['$scope', 'Todo', 'socket', function($scope,
 		$scope.newTodo = '';
 		$scope.update();
 	};
+
 	$scope.removeTodo = function(todo) {
 		Todo.Action.delete({id : todo._id}, function() {
 			socket.emit('changed');
 			$scope.update();
-			}, function () {
-				$scope.update();
-			});
-		};
+		}, function () {
+			$scope.update();
+		});
+	};
+
 	$scope.checkTodo = function(todo){
 		Todo.Action.get({id:todo._id},function (){
 			socket.emit('changed');
 		});
 	};
+
 	$scope.viewTodo = function(item){
 		Todo.View.get({id:item._id},function (todo){
 			$('#todoviewText').html(item.text);
@@ -39,6 +43,7 @@ todoApp.controller('TodoListCtrl', ['$scope', 'Todo', 'socket', function($scope,
 		});
 		$('#todoPanel').collapse('show');
 	};
+
 	$scope.test = function(id) {
 		alert(id);
 	};
@@ -49,4 +54,5 @@ todoApp.controller('TodoListCtrl', ['$scope', 'Todo', 'socket', function($scope,
     });
 
 	$scope.update();
+	
 }]);
