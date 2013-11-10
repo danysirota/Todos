@@ -9,6 +9,9 @@
   "dependencies": {
     "bootstrap": "~3.0.1",
     "angularjs": "*",
-    "angular-socket-io": "~0.2.0"
+    "angular-socket-io": "~0.2.0",
+    "angular-resource": "~1.2.0",
+    "angular-cookies": "~1.2.0",
+    "angular-bootstrap": "~0.6.0"
   }
 }

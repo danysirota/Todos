@@ -11,10 +11,10 @@ block content
 				.list-group-item-heading
 					.checkbox-inline
 						label(ng-style="{ 'text-decoration': todo.finished && 'line-through' || 'inherit' }") {{todo.text}}
-						input(type='checkbox', ng-model='todo.finished', ng-change = 'checkTodo(todo._id)')
+						input(type='checkbox', ng-model='todo.finished', ng-change = 'checkTodo(todo)')
 				.list-group-item-text(style="margin-bottom:20px")
 					span.glyphicon.glyphicon-eye-open.pull-right(ng-click='viewTodo(todo)')
-					span.glyphicon.glyphicon-remove.pull-right(ng-click='removeTodo(todo._id)')
+					span.glyphicon.glyphicon-remove.pull-right(ng-click='removeTodo(todo)')
 	.col-lg-5.fade#todoPanel
 		.panel.panel-default
 			.panel-heading

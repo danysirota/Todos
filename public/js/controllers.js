@@ -6,6 +6,7 @@ todoApp.controller('TodoListCtrl', ['$scope', 'Todo', 'socket', function($scope,
 	$scope.update = function() {
 		Todo.Action.query(function (todos) {
 			$scope.todos = todos.reverse();
+
 		});
 	};
 	$scope.addTodo = function() {
@@ -16,17 +17,16 @@ todoApp.controller('TodoListCtrl', ['$scope', 'Todo', 'socket', function($scope,
 		$scope.newTodo = '';
 		$scope.update();
 	};
-	$scope.removeTodo = function(id) {
-		console.log(id);
-		Todo.Action.delete({id : id}, function() {
+	$scope.removeTodo = function(todo) {
+		Todo.Action.delete({id : todo._id}, function() {
 			socket.emit('changed');
 			$scope.update();
 			}, function () {
 				$scope.update();
 			});
 		};
-	$scope.checkTodo = function(id){
-		Todo.Action.get({id:id},function (){
+	$scope.checkTodo = function(todo){
+		Todo.Action.get({id:todo._id},function (){
 			socket.emit('changed');
 		});
 	};
