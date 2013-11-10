@@ -1,0 +1,14 @@
+{
+  "name": "checklist",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.1",
+    "angularjs": "*",
+    "angular-socket-io": "~0.2.0"
+  }
+}

@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+	.container(ng-controller='TodoListCtrl').col-lg-5
+		div.list-group
+			a.list-group-item.active
+				h4.list-group-item-heading TODO's
+			li.list-group-item
+				input.form-control(placeholder="TODO", on-enter='addTodo()', ng-model='newTodo', autofocus)
+			li.list-group-item(ng-repeat='todo in todos')
+				.list-group-item-heading
+					.checkbox-inline
+						label(ng-style="{ 'text-decoration': todo.finished && 'line-through' || 'inherit' }") {{todo.text}}
+						input(type='checkbox', ng-model='todo.finished', ng-change = 'checkTodo(todo._id)')
+				.list-group-item-text(style="margin-bottom:20px")
+					span.glyphicon.glyphicon-eye-open.pull-right(ng-click='viewTodo(todo)')
+					span.glyphicon.glyphicon-remove.pull-right(ng-click='removeTodo(todo._id)')
+	.col-lg-5.fade#todoPanel
+		.panel.panel-default
+			.panel-heading
+				h4.panel-title(ng-model='a.text')#todoviewText
+			.list-group
+				.list-group-item
+					h4.list-group-item-heading Created By
+					p.list-group-item-text(ng-model='a.creator')#todoviewCreator
+				.list-group-item
+					h4.list-group-item-heading Created At
+					p.list-group-item-text(ng-model='a.todoCreationTimestamp')#todoViewTimestamp
+				.list-group-item
+					h4.list-group-item-heading Finished
+					p.list-group-item-text(ng-model='a.finished')#todoViewfinished

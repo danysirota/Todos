@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+	div
+		form(action='/login', method='POST', role='form').form-horizontal
+			legend
+				span.col-lg-offset-2 Login
+
+			.form-group
+				p!=errors
+
+			.form-group
+				label.col-lg-2.control-label(for='username') Username
+				div.col-lg-2
+					input.form-control(type='text', placeholder='username', name='username', autofocus)
+
+			.form-group
+				label.col-lg-2.control-label(for='username') Password
+				div.col-lg-2
+					input.form-control(type='password', placeholder='password', name='password')
+
+			.form-group
+				.col-lg-10.col-lg-offset-2
+					button.btn.btn-primary.col-lg-1(type='submit') Login
