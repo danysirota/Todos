@@ -1,6 +1,6 @@
 # Todos - Our first MEAN application.
 
-Chose the most simple things that will contain variant of ingredients:
+Chose the most simple project that will contain different ingredients of web application development:
 
 * user authentication (passport)
 * database (mongodb)
